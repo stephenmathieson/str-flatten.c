@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-#include "src/str-flatten.h"
+#include "str-flatten.h"
 
 int failed = 0;
 
