@@ -15,7 +15,7 @@ int failed = 0;
 })
 
 int main(int argc, char **argv) {
-  char *arr[] = {
+  const char *arr[] = {
     "this",
     "was",
     "ripped",
