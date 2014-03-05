@@ -14,7 +14,8 @@ int failed = 0;
   } \
 })
 
-int main(int argc, char **argv) {
+int
+main(void) {
   const char *arr[] = {
     "this",
     "was",
@@ -23,16 +24,47 @@ int main(int argc, char **argv) {
     "sphia"
   };
 
-  assert_equal_str("this was ripped from sphia", str_flatten(arr, 0, 5));
-  assert_equal_str("was ripped from sphia", str_flatten(arr, 1, 5));
-  assert_equal_str("ripped from sphia", str_flatten(arr, 2, 5));
-  assert_equal_str("from sphia", str_flatten(arr, 3, 5));
-  assert_equal_str("sphia", str_flatten(arr, 4, 5));
-  assert_equal_str("this", str_flatten(arr, 0, 1));
-  assert_equal_str("this was", str_flatten(arr, 0, 2));
-  assert_equal_str("this was ripped", str_flatten(arr, 0, 3));
-  assert_equal_str("this was ripped from", str_flatten(arr, 0, 4));
-  assert_equal_str("this was ripped from sphia", str_flatten(arr, 0, 5));
+  char *flat = NULL;
+
+  flat = str_flatten(arr, 0, 5);
+  assert_equal_str("this was ripped from sphia", flat);
+  free(flat);
+
+  flat = str_flatten(arr, 1, 5);
+  assert_equal_str("was ripped from sphia", flat);
+  free(flat);
+
+  flat = str_flatten(arr, 2, 5);
+  assert_equal_str("ripped from sphia", flat);
+  free(flat);
+
+  flat = str_flatten(arr, 3, 5);
+  assert_equal_str("from sphia", flat);
+  free(flat);
+
+  flat = str_flatten(arr, 4, 5);
+  assert_equal_str("sphia", flat);
+  free(flat);
+
+  flat = str_flatten(arr, 0, 1);
+  assert_equal_str("this", flat);
+  free(flat);
+
+  flat = str_flatten(arr, 0, 2);
+  assert_equal_str("this was", flat);
+  free(flat);
+
+  flat = str_flatten(arr, 0, 3);
+  assert_equal_str("this was ripped", flat);
+  free(flat);
+
+  flat = str_flatten(arr, 0, 4);
+  assert_equal_str("this was ripped from", flat);
+  free(flat);
+
+  flat = str_flatten(arr, 0, 5);
+  assert_equal_str("this was ripped from sphia", flat);
+  free(flat);
 
   return failed;
 }
