@@ -1,4 +1,12 @@
 
+0.0.4 / 2014-03-04
+==================
+
+ * Refactor
+  - record lengths so we're not getting them twice
+  - use `memcpy` rather than `strncat`
+  - fix leaks
+
 0.0.3 / 2014-02-19 
 ==================
 
